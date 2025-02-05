@@ -26,3 +26,13 @@ body {
     margin : 0px;
     padding : 0px;
 }
+
+/* Custom scrollbar styles */
+::-webkit-scrollbar {
+    width: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: var(--primary);
+    border-radius: 4px;
+}
