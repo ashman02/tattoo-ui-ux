@@ -1,36 +1,49 @@
-import { useEffect, useRef, useState } from "react"
-import { useGSAP } from "@gsap/react"
+import { useEffect, useRef } from "react"
 import gsap from "gsap"
+import { useGSAP } from "@gsap/react"
 
 const Hero = () => {
-  const words = ["Unshakable", "Inspired", "Reborn"]
-  const [currentWord, setCurrentWord] = useState(words[0])
-  const wordRef = useRef<HTMLSpanElement | null>(null)
+  const words = ["Unshakable", "Inspired", "Reborn", "Unshakable"]
+  const currentIndexRef = useRef(1)
+
   const startAnimation = () => {
-    let i = 0
-    setInterval(() => {
-      if (i === words.length) {
-        i = 0
+    return setInterval(() => {
+      if (currentIndexRef.current === words.length - 1) {
+        const tl = gsap.timeline()
+        tl.to(".header-word", {
+          yPercent: currentIndexRef.current * -100,
+          duration: 0.8,
+          ease: "circ.inOut",
+        }).set(".header-word", { yPercent: 0, duration: 0 })
+        currentIndexRef.current = 1
+      } else {
+        gsap.to(".header-word", {
+          yPercent: -100 * currentIndexRef.current,
+          duration: 0.8,
+          ease: "circ.inOut",
+        })
+        currentIndexRef.current += 1
       }
-      setCurrentWord(words[i])
-      i++
     }, 2000)
   }
+
   useEffect(() => {
-    startAnimation()
+    const intervalId = startAnimation()
+    return () => clearInterval(intervalId)
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
-  useGSAP(() => {
-    const tl = gsap.timeline()
-    tl.to(wordRef.current, {
-      scaleY : 0,
-    }).to(wordRef.current, {
+  useGSAP(() => {  
+    gsap.to("#hero", {
       scaleY : 1,
+      opacity : 1,
+      duration : 1.5,
+      ease : "power3.inOut"
     })
-  }, [currentWord])
+  },[])
+
   return (
-    <section className="relative">
+    <section id="hero" className="relative opacity-0 scale-y-0 origin-bottom">
       <div className="image-container w-full h-[98vh] relative">
         <img
           src="/images/hero-image.jpg"
@@ -48,8 +61,17 @@ const Hero = () => {
         Safety for beginners. Mastery for collectors. Magic for cover-ups.
       </div>
       <div className="main absolute z-20 right-2 md:right-6 lg:right-10 bottom-36 md:bottom-6 lg:bottom-10">
-        <h1 className="text-primary font-semibold font-heading text-[56px] md:text-[80px] lg:text-[112px] leading-[48px] md:leading-[72px] lg:leading-[104px] tracking-[-2px] [word-spacing:-4px] md:[word-spacing:-8px] lg:[word-spacing:-16px] text-end w-[276px] md:w-[342px] lg:w-[502px]">
-          Art That Makes You <span className="inline-block overflow-hidden origin-bottom" ref={wordRef} key={currentWord}>{currentWord}</span>
+        <h1 className="text-primary font-semibold font-heading text-[56px] md:text-[80px] lg:text-[112px] leading-[54px] md:leading-[72px] lg:leading-[104px] tracking-[-4px] text-end w-[276px] md:w-[410px] lg:w-[596px] uppercase">
+          Art That Makes You{" "}
+          <div className="overflow-hidden h-[56px] md:h-[72px] lg:h-[104px]">
+            <span>
+              {words.map((w, i) => (
+                <div className="header-word" key={i}>
+                  {w}
+                </div>
+              ))}
+            </span>
+          </div>
         </h1>
       </div>
     </section>
