@@ -57,7 +57,7 @@ const Hero = () => {
           CONTACT
         </button>
       </div>
-      <div className="subheading absolute bottom-12 md:bottom-6 lg:bottom-10 z-20 left-2 md:left-6 lg:left-10 text-background text-lg lg:text-xl leading-[120%] w-[176px] md:w-[278px] lg:w-[368px]">
+      <div className="subheading text-lg lg:text-xl leading-[120%] absolute bottom-12 md:bottom-6 lg:bottom-10 z-20 left-2 md:left-6 lg:left-10 text-background w-[176px] md:w-[278px] lg:w-[368px]">
         Safety for beginners. Mastery for collectors. Magic for cover-ups.
       </div>
       <div className="main absolute z-20 right-2 md:right-6 lg:right-10 bottom-36 md:bottom-6 lg:bottom-10">
