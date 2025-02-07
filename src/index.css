@@ -28,6 +28,12 @@ body {
     padding : 0px;
 }
 
+@layer utilities {
+    .header {
+        @apply font-semibold font-heading text-[56px] md:text-[80px] lg:text-[112px] leading-[54px] md:leading-[72px] lg:leading-[104px] tracking-[-4px]
+    }
+}
+
 /* Custom scrollbar styles */
 ::-webkit-scrollbar {
     width: 4px;
@@ -37,3 +43,4 @@ body {
     background-color: var(--primary);
     border-radius: 4px;
 }
+

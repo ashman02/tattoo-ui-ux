@@ -33,14 +33,14 @@ const Hero = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
-  useGSAP(() => {  
+  useGSAP(() => {
     gsap.to("#hero", {
-      scaleY : 1,
-      opacity : 1,
-      duration : 1.5,
-      ease : "power3.inOut"
+      scaleY: 1,
+      opacity: 1,
+      duration: 1.5,
+      ease: "power3.inOut",
     })
-  },[])
+  }, [])
 
   return (
     <section id="hero" className="relative opacity-0 scale-y-0 origin-bottom">
@@ -61,7 +61,7 @@ const Hero = () => {
         Safety for beginners. Mastery for collectors. Magic for cover-ups.
       </div>
       <div className="main absolute z-20 right-2 md:right-6 lg:right-10 bottom-36 md:bottom-6 lg:bottom-10">
-        <h1 className="text-primary font-semibold font-heading text-[56px] md:text-[80px] lg:text-[112px] leading-[54px] md:leading-[72px] lg:leading-[104px] tracking-[-4px] text-end w-[276px] md:w-[410px] lg:w-[596px] uppercase">
+        <h1 className="text-primary header text-end w-[276px] md:w-[410px] lg:w-[596px] uppercase">
           Art That Makes You{" "}
           <div className="overflow-hidden h-[56px] md:h-[72px] lg:h-[104px]">
             <span>
