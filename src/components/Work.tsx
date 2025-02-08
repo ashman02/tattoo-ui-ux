@@ -72,18 +72,20 @@ const Work = () => {
     }, [])
     //w-[359px] md:w-[402px] lg:w-[459px]
   return (
-    <section ref={imagesContainerRef} className="work-section my-container opacity-0">
+    <section className="work-section opacity-0">
+        <div ref={imagesContainerRef} className="my-container">
         <h1 className="header uppercase">Recent Work</h1>
         <div className="slider overflow-hidden">
             <div className="images-container w-fit relative flex gap-6">
                 {images.map((img) => (
-                    <div key={img.id} className="w-[calc(100vw-16px)] md:w-[calc(50vw-22px)] lg:w-[calc(33.33vw-23.5px)] h-[688px] rounded-2xl overflow-hidden">
+                    <div key={img.id} className="w-[calc(100vw-16px)] md:w-[calc(50vw-22px)] lg:w-[calc(33.33vw-23.5px)] h-[688px] rounded-lg md:rounded-2xl overflow-hidden">
                         <img src={img.path} alt={`image-${img.id}`} className="w-full h-full rounded-2xl object-center object-cover hover:scale-110 duration-300 ease-in-out transition-all"/>
                     </div>
                 ))}
             </div>
         </div>
         <Testimonial testimonial={`“They transformed my shaky idea for a half-sleeve into a jaw-dropping design that still gets compliments years later.”`} name="Daisy Hale" location="Los Angeles, CA" image="/images/user-1.jpg" />
+        </div>
     </section>
   )
 }
