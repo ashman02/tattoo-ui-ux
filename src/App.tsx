@@ -1,6 +1,8 @@
 import About from "./components/About"
+import Coverups from "./components/Coverups"
 import Hero from "./components/Hero"
 import Work from "./components/Work"
+
 
 const App = () => {
   return (
@@ -8,6 +10,7 @@ const App = () => {
       <Hero/>
       <Work/>
       <About/>
+      <Coverups/>
       <div className="h-screen"></div>
     </main>
   )

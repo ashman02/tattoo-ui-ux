@@ -36,11 +36,11 @@ const About = () => {
       ref={aboutRef}
       className="py-6 lg:py-14 flex flex-col md:flex-row gap-8 md:gap-4 lg:gap-6"
     >
-      <div className="user-image w-full md:w-[35vw] lg:w-[25vw] h-[70vh] md:h-[90vh] lg:h-[130vh]">
+      <div className="user-image w-full md:w-[35vw] lg:w-[25vw] min-h-[70vh] md:min-h-[90vh] lg:min-h-[130vh]">
         <img
           src="/images/about-image.jpg"
           alt="user-image"
-          className="w-full h-full object-cover object-center md:object-[-20rem] lg:object-[-10rem] rounded-lg md:rounded-2xl"
+          className="w-full h-full min-h-[70vh] md:min-h-[90vh] lg:min-h-[130vh] object-cover object-center md:object-[-20rem] lg:object-[-10rem] rounded-lg md:rounded-2xl"
         />
       </div>
       <div className="about-text w-full md:w-[60vw] lg:w-[75vw] flex flex-col justify-between gap-8">
