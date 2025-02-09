@@ -1,7 +1,12 @@
 import gsap from "gsap"
 import { useRef } from "react"
 
-const Button = () => {
+interface ButtonProps {
+  text : string
+  onClick? : () => void
+}
+
+const Button = ({text, onClick} : ButtonProps) => {
   const btnRef = useRef<HTMLButtonElement>(null)
   const handleHoverBtn = () => {
     const tl = gsap.timeline({
@@ -70,11 +75,12 @@ const Button = () => {
   return (
     <button
       ref={btnRef}
+      onClick={onClick}
       onMouseEnter={handleHoverBtn}
       onMouseLeave={handleHoverLeaveBtn}
       className="header text-background bg-foreground px-2 py-2 md:px-4 md:py-4 rounded-lg md:rounded-2xl flex items-center justify-center cursor-pointer overflow-hidden"
     >
-      {"CONTACT".split("").map((char, index) => (
+      {text.split("").map((char, index) => (
         <div key={index} className="btn-word origin-bottom-right">
           {char}
         </div>

@@ -1,4 +1,5 @@
 import About from "./components/About"
+import Contact from "./components/Contact"
 import Coverups from "./components/Coverups"
 import Hero from "./components/Hero"
 import Work from "./components/Work"
@@ -11,6 +12,7 @@ const App = () => {
       <Work/>
       <About/>
       <Coverups/>
+      <Contact/>
       <div className="h-screen"></div>
     </main>
   )

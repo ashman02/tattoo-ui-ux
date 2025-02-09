@@ -1,10 +1,14 @@
 import { useEffect, useRef } from "react"
 import gsap from "gsap"
 import { useGSAP } from "@gsap/react"
+import { useLenis } from "lenis/react"
+import { useNavigate } from "react-router"
 
 const Hero = () => {
   const words = ["Unshakable", "Inspired", "Reborn", "Unshakable"]
   const currentIndexRef = useRef(1)
+  const lenis = useLenis()
+  const navigate = useNavigate()
 
   const startAnimation = () => {
     return setInterval(() => {
@@ -42,6 +46,18 @@ const Hero = () => {
     })
   }, [])
 
+  const handleClick = () => {
+    lenis?.scrollTo('#contact', {
+      duration: 4, 
+      easing: (t) => 1 - Math.pow(1 - t, 3), 
+      immediate: false, 
+      lock: true, 
+      offset: -50
+    })
+
+    navigate("#contact")
+  }
+
   return (
     <section id="hero" className="relative opacity-0 scale-y-0 origin-bottom">
       <div className="image-container w-full h-[98vh] relative">
@@ -52,8 +68,8 @@ const Hero = () => {
         />
         <div className="absolute z-10 w-full h-full bg-[linear-gradient(122deg,_rgba(8,8,8,0)_60%,_rgba(44,39,39,.6)_80%)] md:bg-[linear-gradient(122deg,_rgba(8,8,8,0)_64%,_rgba(44,39,39,.6)_80%)] lg:bg-[linear-gradient(142deg,_rgba(8,8,8,0)_60%,_rgba(44,39,39,.6)_70%)] top-0 rounded-2xl"></div>
       </div>
-      <div className="button absolute right-2 md:right-6 lg:right-10 top-2 md:top-6 lg:top-10">
-        <button className="font-semibold px-3 py-1 rounded-lg bg-background hover:bg-background-shade cursor-pointer">
+      <div className="button absolute right-2 md:right-6 lg:right-10 top-2 md:top-6 lg:top-10 z-30">
+        <button onClick={handleClick} className="font-semibold px-3 py-1 rounded-lg bg-background hover:bg-background-shade cursor-pointer">
           CONTACT
         </button>
       </div>

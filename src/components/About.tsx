@@ -2,9 +2,13 @@ import { useGSAP } from "@gsap/react"
 import Button from "./Button"
 import gsap from "gsap"
 import { useRef } from "react"
+import { useLenis } from "lenis/react"
+import { useNavigate } from "react-router"
 
 const About = () => {
   const aboutRef = useRef<HTMLDivElement>(null)
+  const lenis = useLenis()
+  const navigate = useNavigate()
   useGSAP(() => {
     const mm = gsap.matchMedia()
     mm.add(
@@ -31,8 +35,23 @@ const About = () => {
     )
   }, [])
 
+ 
+
+  const handleClick = () => {
+    lenis?.scrollTo('#contact', {
+      duration: 2, 
+      easing: (t) => 1 - Math.pow(1 - t, 3), 
+      immediate: false, 
+      lock: true, 
+      offset: -50
+    })
+
+    navigate("#contact")
+  }
+
   return (
     <section
+      id="about"
       ref={aboutRef}
       className="py-6 lg:py-14 flex flex-col md:flex-row gap-8 md:gap-4 lg:gap-6"
     >
@@ -65,7 +84,7 @@ const About = () => {
           ))}
         </h1>
         <div>
-          <Button />
+          <Button text="CONTACT" onClick={handleClick}/>
         </div>
       </div>
     </section>
