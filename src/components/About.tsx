@@ -53,7 +53,7 @@ const About = () => {
     <section
       id="about"
       ref={aboutRef}
-      className="py-6 lg:py-14 flex flex-col md:flex-row gap-8 md:gap-4 lg:gap-6"
+      className="py-6 px-2 lg:py-14 flex flex-col md:flex-row gap-8 md:gap-4 lg:gap-6"
     >
       <div className="user-image w-full md:w-[35vw] lg:w-[25vw] min-h-[70vh] md:min-h-[90vh] lg:min-h-[130vh]">
         <img

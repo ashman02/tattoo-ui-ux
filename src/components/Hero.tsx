@@ -59,7 +59,7 @@ const Hero = () => {
   }
 
   return (
-    <section id="hero" className="relative opacity-0 scale-y-0 origin-bottom">
+    <section id="hero" className="relative opacity-0 scale-y-0 origin-bottom mx-2">
       <div className="image-container w-full h-[98vh] relative">
         <img
           src="/images/hero-image.jpg"
